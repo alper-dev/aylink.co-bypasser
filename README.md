@@ -12,7 +12,7 @@
 
 ## ✨ Özellikler
 
--   🔓 **Aylink.co linklerisi bypass eder**
+-   🔓 **aylink.co linklerini bypass eder**
 -   🌐 **Tampermonkey userscript**
 -   🔒 **Kişisel veri toplamaz**
 -   🚀 **Otomatik çalışır**
@@ -21,7 +21,7 @@
 
 1. [Tampermonkey](https://tampermonkey.net) eklentisini yükleyin
 2. `script.js` dosyasını açın
-3. Tampermonkey dashboard'da `Create a new script` tıklayın
+3. Tampermonkey dashboard'da `Yeni betik oluştur` tıklayın
 4. Kodu yapıştırın ve kaydedin
 
 ## 🚀 Kullanım
