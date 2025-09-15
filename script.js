@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Aylink Bypasser
 // @namespace    https://github.com/alper-dev/aylink.co-bypasser
-// @version      1.0
+// @version      1.1
 // @description  Bypass aylink.co links
 // @author       alperdev
 // @license      MIT
