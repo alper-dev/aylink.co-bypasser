@@ -10,12 +10,20 @@
 
 ## 🇹🇷 Türkçe | [🇺🇸 English](#english)
 
+## ⚠️ Önemli: Chromium Tabanlı Tarayıcılar İçin
+
+Chrome, Opera, OperaGX, Brave gibi Chromium tabanlı tarayıcılarda Tampermonkey'i kullanabilmek için:
+
+<a href="https://hizliresim.com/5mk7vxd"><img src="https://i.hizliresim.com/5mk7vxd.png" alt="Resim Yükle" width="900"></a>
+<a href="https://hizliresim.com/i88mivz"><img src="https://i.hizliresim.com/i88mivz.png" alt="Resim Yükle" width="900"></a>
+<a href="https://hizliresim.com/qmg03yr"><img src="https://i.hizliresim.com/qmg03yr.png" alt="Resim Yükle" width="900"></a>
+
 ## ✨ Özellikler
 
--   🔓 **aylink.co linklerini bypass eder**
--   🌐 **Tampermonkey userscript**
--   🔒 **Kişisel veri toplamaz**
--   🚀 **Otomatik çalışır**
+- 🔓 **aylink.co linklerini bypass eder**
+- 🌐 **Tampermonkey userscript**
+- 🔒 **Kişisel veri toplamaz**
+- 🚀 **Otomatik çalışır**
 
 ## 🛠 Kurulum
 
@@ -26,10 +34,10 @@
 
 ## 🚀 Kullanım
 
--   Herhangi bir aylink.co linkine gidin
--   Script otomatik olarak çalışacak
--   Yüklenme animasyonu göreceksiniz
--   Bypass tamamlandığında direkt hedef URL'ye yönlendirileceksiniz
+- Herhangi bir aylink.co linkine gidin
+- Script otomatik olarak çalışacak
+- Yüklenme animasyonu göreceksiniz
+- Bypass tamamlandığında direkt hedef URL'ye yönlendirileceksiniz
 
 ## 💰 Bağış
 
@@ -56,12 +64,20 @@ Bu araç sadece eğitim amaçlıdır. Kullanıcılar kendi sorumluluklarında ku
 
 ## English
 
+## ⚠️ Note for Chromium-based Browsers
+
+On Chrome, Opera, OperaGX, Brave, and other Chromium based browsers:
+
+<a href="https://hizliresim.com/f4kuiat"><img src="https://i.hizliresim.com/f4kuiat.png" alt="Resim Yükle" width="900"></a>
+<a href="https://hizliresim.com/gy0sozz"><img src="https://i.hizliresim.com/gy0sozz.png" alt="Resim Yükle" width="900"></a>
+<a href="https://hizliresim.com/k62b23o"><img src="https://i.hizliresim.com/k62b23o.png" alt="Resim Yükle" width="900"></a>
+
 ## ✨ Features
 
--   🔓 **Bypasses aylink.co links**
--   🌐 **Tampermonkey userscript**
--   🔒 **No personal data collection**
--   🚀 **Auto-execution**
+- 🔓 **Bypasses aylink.co links**
+- 🌐 **Tampermonkey userscript**
+- 🔒 **No personal data collection**
+- 🚀 **Auto-execution**
 
 ## 🛠 Installation
 
@@ -72,10 +88,10 @@ Bu araç sadece eğitim amaçlıdır. Kullanıcılar kendi sorumluluklarında ku
 
 ## 🚀 Usage
 
--   Visit any [aylink.co](https://aylink.co/Gq84Vc) URL
--   Script will run automatically
--   You'll see a loading animation
--   When bypass is complete, you'll be redirected to target URL
+- Visit any [aylink.co](https://aylink.co/Gq84Vc) URL
+- Script will run automatically
+- You'll see a loading animation
+- When bypass is complete, you'll be redirected to target URL
 
 ## 💰 Donation
 
