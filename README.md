@@ -1,5 +1,5 @@
-## ⚠️ 27.10.2025
-This userscript appears to be not working. I am currently working on it.
+> [!WARNING]
+> **27.10.2025:** This userscript appears to be not working on some Firefox based browsers. I am currently working on it.
 
 # 🚀 Aylink Bypasser
 
