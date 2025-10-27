@@ -1,3 +1,6 @@
+## ⚠️ 27.10.2025
+This userscript appears to be not working. I am currently working on it.
+
 # 🚀 Aylink Bypasser
 
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](https://github.com/alperdev/aylink-bypasser)
