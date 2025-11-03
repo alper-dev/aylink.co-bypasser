@@ -1,43 +1,33 @@
-# 🚀 Aylink Bypasser
+# TRLink Bypasser
 
-[![License](https://img.shields.io/badge/License-MIT-red.svg)](https://github.com/alperdev/aylink-bypasser)
-[![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Compatible-green.svg)](https://tampermonkey.net)
-
-**🇹🇷 Aylink.co link korumasını bypass eden Tampermonkey userscript'i**  
-**🇺🇸 Tampermonkey userscript to bypass aylink.co link protection**
+**🇹🇷 aylink.co ve cpmlink.pro link korumasını bypass edip hızlıca açan Tampermonkey userscript'i**  
+**🇺🇸 Tampermonkey userscript to bypass aylink.co and cpmlink.pro link protection**
 
 ---
 
 ## 🇹🇷 Türkçe | [🇺🇸 English](#english)
 
-## ⚠️ Önemli: Chromium Tabanlı Tarayıcılar İçin
+> [!WARNING]  
+> **Chrome, Opera, OperaGX, Brave** gibi Chromium tabanlı tarayıcılarda Tampermonkey'i kullanabilmek için:
+> 
+> <a href="https://hizliresim.com/5mk7vxd"><img src="https://i.hizliresim.com/5mk7vxd.png" alt="Resim Yükle" width="900"></a>
+> <a href="https://hizliresim.com/i88mivz"><img src="https://i.hizliresim.com/i88mivz.png" alt="Resim Yükle" width="900"></a>
+> <a href="https://hizliresim.com/qmg03yr"><img src="https://i.hizliresim.com/qmg03yr.png" alt="Resim Yükle" width="900"></a>
 
-Chrome, Opera, OperaGX, Brave gibi Chromium tabanlı tarayıcılarda Tampermonkey'i kullanabilmek için:
+## ✨ Script Hakkında
 
-<a href="https://hizliresim.com/5mk7vxd"><img src="https://i.hizliresim.com/5mk7vxd.png" alt="Resim Yükle" width="900"></a>
-<a href="https://hizliresim.com/i88mivz"><img src="https://i.hizliresim.com/i88mivz.png" alt="Resim Yükle" width="900"></a>
-<a href="https://hizliresim.com/qmg03yr"><img src="https://i.hizliresim.com/qmg03yr.png" alt="Resim Yükle" width="900"></a>
-
-## ✨ Özellikler
-
-- 🔓 **aylink.co linklerini bypass eder**
-- 🌐 **Tampermonkey userscript**
-- 🔒 **Kişisel veri toplamaz**
-- 🚀 **Otomatik çalışır**
+> `aylink.co`, `ay.live` ve `cpmlink.pro` linklerini bypass ederek asıl linki hızlıca açar. Script otomatik çalışır, sizin bir şey yapmanıza gerek yoktur.
 
 ## 🛠 Kurulum
 
-1. [Tampermonkey](https://tampermonkey.net) eklentisini yükleyin
-2. `script.js` dosyasını açın
-3. Tampermonkey dashboard'da `Yeni betik oluştur` tıklayın
-4. Kodu yapıştırın ve kaydedin
+1. [Tampermonkey](https://tampermonkey.net) eklentisini tarayıcınıza indirin
+2. [script.js](https://github.com/alper-dev/aylink.co-bypasser/blob/main/script.js) dosyasındaki kodu kopyalayın
+3. Tampermonkey eklentisini açın ve `Yeni betik oluştur...`'a tıklayın
+4. Kopyaladığınız kodu yapıştırın ve kaydedin
 
 ## 🚀 Kullanım
 
-- Herhangi bir aylink.co linkine gidin
-- Script otomatik olarak çalışacak
-- Yüklenme animasyonu göreceksiniz
-- Bypass tamamlandığında direkt hedef URL'ye yönlendirileceksiniz
+> Herhangi bir `aylink.co` veya `cpmlink.pro` linkine gidin, script otomatik olarak çalışacaktır.
 
 ## ⚠️ Yasal Uyarı
 
@@ -51,34 +41,26 @@ Bu araç sadece eğitim amaçlıdır. Kullanıcılar kendi sorumluluklarında ku
 
 ## English
 
-## ⚠️ Note for Chromium-based Browsers
+> [!WARNING]
+> Do these on **Chrome, Opera, OperaGX, Brave**, and other Chromium based browsers:
+> <a href="https://hizliresim.com/f4kuiat"><img src="https://i.hizliresim.com/f4kuiat.png" alt="Resim Yükle" width="900"></a>
+> <a href="https://hizliresim.com/gy0sozz"><img src="https://i.hizliresim.com/gy0sozz.png" alt="Resim Yükle" width="900"></a>
+> <a href="https://hizliresim.com/k62b23o"><img src="https://i.hizliresim.com/k62b23o.png" alt="Resim Yükle" width="900"></a>
 
-On Chrome, Opera, OperaGX, Brave, and other Chromium based browsers:
+## ✨ About Script
 
-<a href="https://hizliresim.com/f4kuiat"><img src="https://i.hizliresim.com/f4kuiat.png" alt="Resim Yükle" width="900"></a>
-<a href="https://hizliresim.com/gy0sozz"><img src="https://i.hizliresim.com/gy0sozz.png" alt="Resim Yükle" width="900"></a>
-<a href="https://hizliresim.com/k62b23o"><img src="https://i.hizliresim.com/k62b23o.png" alt="Resim Yükle" width="900"></a>
-
-## ✨ Features
-
-- 🔓 **Bypasses aylink.co links**
-- 🌐 **Tampermonkey userscript**
-- 🔒 **No personal data collection**
-- 🚀 **Auto-execution**
+> Bypasses `aylink.co`, `ay.live` and `cpmlink.pro` short links. Runs automatically.
 
 ## 🛠 Installation
 
 1. Install [Tampermonkey](https://tampermonkey.net) extension
-2. Open `script.js` file
-3. Click `Create a new script` in Tampermonkey dashboard
+2. Open [script.js](https://github.com/alper-dev/aylink.co-bypasser/blob/main/script.js) and copy the code
+3. Click `Create a new script...` in Tampermonkey window
 4. Paste the code and save
 
 ## 🚀 Usage
 
-- Visit any [aylink.co](https://aylink.co/Gq84Vc) URL
-- Script will run automatically
-- You'll see a loading animation
-- When bypass is complete, you'll be redirected to target URL
+> Visit any `aylink.co` or `cpmlink.pro` link, script will run automatically.
 
 ## ⚠️ Legal Notice
 
