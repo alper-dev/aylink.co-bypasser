@@ -39,19 +39,6 @@ Chrome, Opera, OperaGX, Brave gibi Chromium tabanlı tarayıcılarda Tampermonke
 - Yüklenme animasyonu göreceksiniz
 - Bypass tamamlandığında direkt hedef URL'ye yönlendirileceksiniz
 
-## 💰 Bağış
-
-Bu proje ücretsizdir. Eğer faydalı bulduysanız, geliştiricisini desteklemek için bağış yapabilirsiniz:
-
-| Coin         | Address                                        |
-| ------------ | ---------------------------------------------- |
-| **Bitcoin**  | `bc1q6n2ylfpa25m4l05x5nwy5xa759ae4kkpcdjga6`   |
-| **Ethereum** | `0xCfbF8d2bC8485435fa4eDf6C6576ab0EbD144aE7`   |
-| **Litecoin** | `LYdQBdr9kh4VCac8UFzUzRfz8QkPgTFPYy`           |
-| **Solana**   | `AczoQXRpH6dHRCR8EVfRetCpxYrGjPWEzyRQiWhqdqfm` |
-| **XRP**      | `r9UG6pgGeaTJTb3sSjtxDgwtzC7YBEy8mQ`           |
-| **USDC**     | `0xCfbF8d2bC8485435fa4eDf6C6576ab0EbD144aE7`   |
-
 ## ⚠️ Yasal Uyarı
 
 Bu araç sadece eğitim amaçlıdır. Kullanıcılar kendi sorumluluklarında kullanmalıdır. Geliştirici, bu aracın kullanımından doğabilecek herhangi bir zarardan sorumlu değildir.
@@ -92,19 +79,6 @@ On Chrome, Opera, OperaGX, Brave, and other Chromium based browsers:
 - Script will run automatically
 - You'll see a loading animation
 - When bypass is complete, you'll be redirected to target URL
-
-## 💰 Donation
-
-This project is free. If you find it useful, you can support the developer:
-
-| Coin         | Address                                        |
-| ------------ | ---------------------------------------------- |
-| **Bitcoin**  | `bc1q6n2ylfpa25m4l05x5nwy5xa759ae4kkpcdjga6`   |
-| **Ethereum** | `0xCfbF8d2bC8485435fa4eDf6C6576ab0EbD144aE7`   |
-| **Litecoin** | `LYdQBdr9kh4VCac8UFzUzRfz8QkPgTFPYy`           |
-| **Solana**   | `AczoQXRpH6dHRCR8EVfRetCpxYrGjPWEzyRQiWhqdqfm` |
-| **XRP**      | `r9UG6pgGeaTJTb3sSjtxDgwtzC7YBEy8mQ`           |
-| **USDC**     | `0xCfbF8d2bC8485435fa4eDf6C6576ab0EbD144aE7`   |
 
 ## ⚠️ Legal Notice
 
