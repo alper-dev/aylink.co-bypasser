@@ -1,7 +1,7 @@
 # TRLink Bypasser
 
-**🇹🇷 aylink.co ve cpmlink.pro link korumasını bypass edip hızlıca açan Tampermonkey userscript'i**  
-**🇺🇸 Tampermonkey userscript to bypass aylink.co and cpmlink.pro link protection**
+**🇹🇷 `aylink.co` ve `cpmlink.pro` link korumasını bypass edip hızlıca açan Tampermonkey userscript'i**  
+**🇺🇸 Tampermonkey userscript to bypass `aylink.co` and `cpmlink.pro` link protection**
 
 ---
 
