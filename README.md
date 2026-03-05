@@ -1,7 +1,7 @@
 # TRLink Bypasser
 
-**🇹🇷 `aylink.co` ve `cpmlink.pro` link korumasını bypass edip hızlıca açan Tampermonkey userscript'i**  
-**🇺🇸 Tampermonkey userscript to bypass `aylink.co` and `cpmlink.pro` link protection**
+**🇹🇷 aylink.co ve cpmlink.pro link korumasını bypass edip hızlıca açan Tampermonkey userscript'i**  
+**🇺🇸 Tampermonkey userscript to bypass aylink.co and cpmlink.pro link protection**
 
 ---
 
@@ -9,7 +9,7 @@
 
 > [!WARNING]  
 > **Chrome, Opera, OperaGX, Brave** gibi Chromium tabanlı tarayıcılarda Tampermonkey'i kullanabilmek için:
-> 
+>
 > <a href="https://hizliresim.com/5mk7vxd"><img src="https://i.hizliresim.com/5mk7vxd.png" alt="Resim Yükle" width="900"></a>
 > <a href="https://hizliresim.com/i88mivz"><img src="https://i.hizliresim.com/i88mivz.png" alt="Resim Yükle" width="900"></a>
 > <a href="https://hizliresim.com/qmg03yr"><img src="https://i.hizliresim.com/qmg03yr.png" alt="Resim Yükle" width="900"></a>
@@ -28,6 +28,11 @@
 ## 🚀 Kullanım
 
 > Herhangi bir `aylink.co` veya `cpmlink.pro` linkine gidin, script otomatik olarak çalışacaktır.
+
+### 🔍 Link Bulmak İçin
+
+Aylink linkleri bulmak ve test etmek için bu [Özel Google Arama Motoru](https://cse.google.com/cse?cx=4176c5314a0ed4c10)'nu kullanabilirsiniz. Eğer gizli saklı arşivleri veya "o malum" videoları arıyorsanız (ne demek istediğimi anladınız 😉), arama yaparken şu sihirli kelimeleri kullanmak çok daha _ilgi çekici_ sonuçlar almanızı ve aradığınızı şıp diye bulmanızı sağlayacaktır:
+`mp4`, `disk`, `yandex`, `cloud`, `mega`
 
 ## ⚠️ Yasal Uyarı
 
@@ -61,6 +66,11 @@ Bu araç sadece eğitim amaçlıdır. Kullanıcılar kendi sorumluluklarında ku
 ## 🚀 Usage
 
 > Visit any `aylink.co` or `cpmlink.pro` link, script will run automatically.
+
+### 🔍 Finding Links
+
+You can use this [Custom Google Search Engine](https://cse.google.com/cse?cx=4176c5314a0ed4c10) to find and test aylink links. If you are hunting for hidden archives or _those_ "special" videos (if you know what I mean 😉), searching with these magic keywords will definitely give you some very _interesting_ results:
+`mp4`, `disk`, `yandex`, `cloud`, `mega`
 
 ## ⚠️ Legal Notice
 
