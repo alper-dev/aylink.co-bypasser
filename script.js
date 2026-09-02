@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TRLink Bypasser
 // @namespace    https://github.com/alper-dev/aylink.co-bypasser
-// @version      1.6
+// @version      1.7
 // @description  Bypass aylink.co and cpmlink.pro short links automatically.
 // @author       alperdev
 // @license      MIT
@@ -25,6 +25,8 @@
             en: {
                 bypassing: 'Bypassing...',
                 ok: 'OK',
+                waiting: 'Waiting for countdown...',
+                countdownError: 'Error: Countdown did not finish in time. Please reload the page.',
                 captchaWait: '🤖 Please pass the verification first, then the process will continue automatically.',
                 dataExtractError: 'Error: Could not extract necessary data. Please check the console.',
                 tokenError: 'Error: Could not fetch token. Please check the console.',
@@ -39,7 +41,7 @@
                     '[TRLink Bypasser] Error: Could not extract alias or csrf values. The site structure may have changed.',
                 logTokenError: '[TRLink Bypasser] Error: Could not fetch token from server. Response:',
                 logRegexWarn:
-                    '[TRLink Bypasser] Warning: Could not find URL with regex in bildirim.vip. Redirecting to incoming URL:',
+                    '[TRLink Bypasser] Warning: Could not find URL with regex in bildirim page. Redirecting to incoming URL:',
                 logRedirectError:
                     '[TRLink Bypasser] Error: /links/go2 request was successful but returned no URL. Full Response:',
                 logCriticalError: '[TRLink Bypasser] Unexpected Critical Error:',
@@ -47,6 +49,8 @@
             tr: {
                 bypassing: 'Geçiliyor...',
                 ok: 'Tamam',
+                waiting: 'Geri sayım bekleniyor...',
+                countdownError: 'Hata: Geri sayım zamanında bitmedi. Lütfen sayfayı yenileyin.',
                 captchaWait: '🤖 Lütfen önce doğrulamayı geçin, ardından işlem otomatik devam edecektir.',
                 dataExtractError: 'Hata: Gerekli veriler çekilemedi. Lütfen konsolu kontrol edin.',
                 tokenError: 'Hata: Token alınamadı. Lütfen konsolu kontrol edin.',
@@ -61,7 +65,7 @@
                     '[TRLink Bypasser] Hata: Sayfadan alias veya csrf değerleri çekilemedi. Site yapısı değişmiş olabilir.',
                 logTokenError: '[TRLink Bypasser] Hata: Sunucudan token alınamadı. Yanıt:',
                 logRegexWarn:
-                    "[TRLink Bypasser] Uyarı: bildirim.vip içinde regex ile URL bulunamadı. Gelen URL'ye yönlendiriliyor:",
+                    "[TRLink Bypasser] Uyarı: bildirim sayfası içinde regex ile URL bulunamadı. Gelen URL'ye yönlendiriliyor:",
                 logRedirectError:
                     '[TRLink Bypasser] Hata: /links/go2 isteği başarılı oldu ancak URL döndürmedi. Tam Yanıt:',
                 logCriticalError: '[TRLink Bypasser] Beklenmeyen Kritik Hata:',
@@ -69,6 +73,61 @@
         };
         return key => dict[lang][key] || dict['en'][key];
     })();
+
+    // Mirrors the site's own window.__visitorSignal (see webroot/js/new/app.min.js):
+    // {t: unix time, d: seconds on page, m: interaction counters, f: browser flags}.
+    const signalStart = Date.now();
+    const signalMoves = { move: 0, click: 0, scroll: 0, key: 0, touch: 0, focus: 0 };
+    const signalIsMobile =
+        /Mobi|Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    document.addEventListener('mousemove', () => signalMoves.move++);
+    document.addEventListener('click', () => signalMoves.click++);
+    document.addEventListener('scroll', () => signalMoves.scroll++);
+    document.addEventListener('keydown', () => signalMoves.key++);
+    document.addEventListener('touchstart', () => signalMoves.touch++);
+    document.addEventListener('touchmove', () => signalMoves.touch++);
+    document.addEventListener('focus', () => signalMoves.focus++);
+    function buildSignal() {
+        return JSON.stringify({
+            t: Math.floor(Date.now() / 1000),
+            d: parseFloat(((Date.now() - signalStart) / 1000).toFixed(2)),
+            m: signalMoves,
+            f: {
+                webdriver: !!navigator.webdriver,
+                headless: /HeadlessChrome/i.test(navigator.userAgent),
+                noPlugins: !navigator.plugins || navigator.plugins.length === 0,
+                mobile: signalIsMobile,
+            },
+        });
+    }
+
+    function setBypassStatus(text) {
+        const el = document.querySelector('#bypass-anim .bypass-text');
+        if (el) el.textContent = text;
+    }
+
+    // The new UI gates the flow behind a ~10s countdown on #continueButton
+    // (class `disabled` -> `btn-go`). Resolves with the button's data-token.
+    function waitForCountdown() {
+        const btn = document.getElementById('continueButton');
+        if (!btn) return Promise.resolve('');
+        if (btn.classList.contains('btn-go')) return Promise.resolve(btn.getAttribute('data-token') || '');
+        setBypassStatus(translate('waiting'));
+        return new Promise((resolve, reject) => {
+            const deadline = Date.now() + 60000;
+            const timer = setInterval(() => {
+                const b = document.getElementById('continueButton');
+                if (b && b.classList.contains('btn-go')) {
+                    clearInterval(timer);
+                    setBypassStatus(translate('bypassing'));
+                    resolve(b.getAttribute('data-token') || '');
+                } else if (Date.now() > deadline) {
+                    clearInterval(timer);
+                    reject(new Error(translate('countdownError')));
+                }
+            }, 500);
+        });
+    }
 
     const showBypassingAnimation = (() => {
         let styleInjected = false;
@@ -298,6 +357,7 @@
 
         const removeAnim = showBypassingAnimation();
         try {
+            const buttonToken = await waitForCountdown();
             const html = document.documentElement.outerHTML;
             const m = html.match(/_a\s*=\s*'([^']+)',\s*_t\s*=\s*'([^']+)',\s*_d\s*=\s*'([^']+)'/);
             if (!m) {
@@ -313,6 +373,10 @@
                 return showErrorMessage(translate('dataExtractError'));
             }
             const [alias, csrf] = m2.slice(1);
+            const m3 = html.match(/id="continueButton"[^>]*data-token="([^"]+)"/);
+            const visitorToken = buttonToken || (m3 ? m3[1] : '');
+            const m4 = html.match(/id="go-link"[^>]*action="([^"]+)"/);
+            const go2Url = m4 ? m4[1] : `https://${host}/links/go2`;
 
             const headers = {
                 Accept: 'application/json, text/javascript, */*; q=0.01',
@@ -340,16 +404,16 @@
             const tkn = tkData.th;
 
             const go2Data = await makeRequest(
-                `https://${host}/links/go2`,
+                go2Url,
                 'POST',
-                `alias=${alias}&csrf=${csrf}&tkn=${tkn}`,
+                `alias=${alias}&csrf=${csrf}&tkn=${tkn}&visitor_token=${visitorToken}&signal=${encodeURIComponent(buildSignal())}`,
                 headers,
             );
 
             if (go2Data.url) {
-                if (go2Data.url.includes('bildirim.vip')) {
+                if (/bildirim\.(vip|online)/.test(go2Data.url)) {
                     const finalHtml = await makeRequest(go2Data.url, 'GET');
-                    console.log('Bildirim.vip HTML response:', finalHtml);
+                    console.log('Bildirim HTML response:', finalHtml);
                     const match = finalHtml.match(/url\s*=\s*'([^']+)'/) || finalHtml.match(/uri_full:\s*'([^']*)'/);
                     if (match) {
                         removeAnim();
