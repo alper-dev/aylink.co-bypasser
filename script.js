@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TRLink Bypasser
 // @namespace    https://github.com/alper-dev/aylink.co-bypasser
-// @version      1.7
+// @version      1.8
 // @description  Bypass aylink.co and cpmlink.pro short links automatically.
 // @author       alperdev
 // @license      MIT
@@ -106,8 +106,11 @@
         if (el) el.textContent = text;
     }
 
-    // The new UI gates the flow behind a ~10s countdown on #continueButton
-    // (class `disabled` -> `btn-go`). Resolves with the button's data-token.
+    // The countdown only gates the button UI — the backend does not enforce
+    // any wait (verified: an immediate go2 with a sub-second signal returns
+    // the URL). So we try instantly and only sit through the countdown as a
+    // fallback if the server ever starts gating go2 behind it.
+    // Resolves with the button's data-token.
     function waitForCountdown() {
         const btn = document.getElementById('continueButton');
         if (!btn) return Promise.resolve('');
@@ -357,7 +360,6 @@
 
         const removeAnim = showBypassingAnimation();
         try {
-            const buttonToken = await waitForCountdown();
             const html = document.documentElement.outerHTML;
             const m = html.match(/_a\s*=\s*'([^']+)',\s*_t\s*=\s*'([^']+)',\s*_d\s*=\s*'([^']+)'/);
             if (!m) {
@@ -374,7 +376,7 @@
             }
             const [alias, csrf] = m2.slice(1);
             const m3 = html.match(/id="continueButton"[^>]*data-token="([^"]+)"/);
-            const visitorToken = buttonToken || (m3 ? m3[1] : '');
+            const visitorToken = m3 ? m3[1] : '';
             const m4 = html.match(/id="go-link"[^>]*action="([^"]+)"/);
             const go2Url = m4 ? m4[1] : `https://${host}/links/go2`;
 
@@ -403,12 +405,19 @@
             }
             const tkn = tkData.th;
 
-            const go2Data = await makeRequest(
-                go2Url,
-                'POST',
-                `alias=${alias}&csrf=${csrf}&tkn=${tkn}&visitor_token=${visitorToken}&signal=${encodeURIComponent(buildSignal())}`,
-                headers,
-            );
+            const attemptGo = visitorToken =>
+                makeRequest(
+                    go2Url,
+                    'POST',
+                    `alias=${alias}&csrf=${csrf}&tkn=${tkn}&visitor_token=${visitorToken}&signal=${encodeURIComponent(buildSignal())}`,
+                    headers,
+                );
+
+            let go2Data = await attemptGo(visitorToken);
+            if (!go2Data.url) {
+                const buttonToken = await waitForCountdown();
+                go2Data = await attemptGo(buttonToken || visitorToken);
+            }
 
             if (go2Data.url) {
                 if (/bildirim\.(vip|online)/.test(go2Data.url)) {
